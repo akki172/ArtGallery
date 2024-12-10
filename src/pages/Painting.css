@@ -1,0 +1,71 @@
+/* Paintings.css */
+
+.paintings-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.paintings-container h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.paintings-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Explicitly set 3 columns */
+    gap: 20px;
+    justify-items: center;
+}
+
+.painting-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 300px; /* Adjust width to fit the rectangular card */
+    height: 400px; /* Set height for a rectangular aspect ratio */
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.painting-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.painting-image {
+    width: 100%;
+    height: 60%; /* Adjust image height to maintain a good ratio */
+    object-fit: cover; /* Ensure the image fills the container without distortion */
+}
+
+.painting-title {
+    font-size: 1.2em;
+    font-weight: 500;
+    margin: 10px 0;
+    padding: 0 10px;
+}
+
+.painting-price {
+    font-size: 1em;
+    color: #666;
+    margin-bottom: 15px;
+    padding: 0 10px;
+}
+
+@media (max-width: 768px) {
+    .paintings-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+    }
+}
+
+@media (max-width: 600px) {
+    .paintings-grid {
+        grid-template-columns: 1fr; /* 1 column on small screens */
+    }
+}

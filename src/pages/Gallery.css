@@ -1,0 +1,54 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.gallery-container {
+  padding: 16px;
+}
+
+.header {
+  text-align: center;
+  padding: 32px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px; /* Space between images */
+}
+
+.column {
+  flex: 1;
+  max-width: 23%; /* Adjust this to have space for multiple images per row */
+  padding: 4px;
+}
+
+.column img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.column img:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive layout - Adjusts the number of columns depending on the screen size */
+@media screen and (max-width: 1024px) {
+  .column {
+    max-width: 48%; /* Two columns for tablets */
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .column {
+    max-width: 100%; /* One column for mobile */
+  }
+}

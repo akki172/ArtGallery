@@ -1,0 +1,62 @@
+/* contact.css */
+
+/* Set a pastel background color */
+.contact-page {
+  background-color: #f5e1e1; /* Light pastel pink */
+  background-size: cover;
+  background-position: center;
+  padding: 50px 20px;
+  color: #333; /* Darker text color for better contrast */
+}
+
+/* Style for the contact form */
+.contact-form {
+  background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent white for the form */
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Form header style */
+.contact-form h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+/* Style for form inputs */
+.contact-form input, .contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+/* Button style */
+.contact-form button {
+  background-color: #ffb3b3; /* Soft pastel pink button */
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  background-color: #ff9999; /* Slightly darker shade for hover effect */
+}
+
+/* Optional: Style for the contact details section */
+.contact-details {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.contact-details h3 {
+  font-size: 20px;
+}
+
+.contact-details p {
+  font-size: 16px;
+}

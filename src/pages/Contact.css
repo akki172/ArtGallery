@@ -1,0 +1,69 @@
+.contact-container {
+    padding: 20px;
+  }
+  
+  .contact-container h2 {
+    font-size: 2em;
+  }
+  
+  .contact-content {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .enquiry-form {
+    width: 30%; /* Adjusted form width to give more space for the map */
+  }
+  
+  .enquiry-form label {
+    display: block;
+    margin: 10px 0 5px;
+  }
+  
+  .enquiry-form input, .enquiry-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  .newsletter {
+    margin: 15px 0;
+  }
+  
+  .newsletter label {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  .newsletter-options {
+    display: flex;
+    align-items: center;
+  }
+  
+  .newsletter-options label {
+    margin-right: 15px;
+  }
+  
+  
+  button {
+    background-color: black;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #333;
+  }
+  
+  .map-container {
+    width: 65%; /* Increased map width */
+  }
+  
+  .map-container iframe {
+    width: 100%; /* Ensure the iframe fills the container width */
+    height: 500px; /* Increased height for larger display */
+  }
+  

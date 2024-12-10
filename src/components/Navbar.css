@@ -1,0 +1,54 @@
+/* Navbar Styling */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #333;
+  color: white;
+}
+
+.navbar-logo a {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navbar-links li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.navbar-links li a:hover {
+  color: #ffcc00;
+}
+
+/* Styling for Login and Sign Up buttons */
+.auth-btn {
+  background-color: #ffcc00; /* Yellow background for the buttons */
+  padding: 8px 16px;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+}
+
+.auth-btn:hover {
+  background-color: #ff9900; /* Darker yellow on hover */
+}
+
+/* Optional: add some margin for better spacing */
+.navbar-links li:last-child {
+  margin-left: 1rem;
+}

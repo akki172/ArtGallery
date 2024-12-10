@@ -1,0 +1,50 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  text-align: center;
+  background-image: url('/public/img/musem.jpg'); /* Replace with your image path */
+  background-size: cover; /* Ensures the image covers the whole area */
+  background-position: center; /* Centers the background image */
+  height: 100vh; /* Full viewport height */
+  width: 100%; /* Full width */
+}
+
+.home h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.home p {
+  font-size: 1.2rem;
+  color: #000000; /* White text to stand out on dark backgrounds */
+  max-width: 600px;
+}
+
+/* Pop-in Text Styling */
+.pop-in-text {
+  font-size: 1.5rem;
+  color: #000000;
+  margin-top: 30px;
+  opacity: 0;
+  transform: translateY(20px); /* Start slightly below */
+  animation: popIn 1.5s ease-out forwards; /* Animation to pop in */
+}
+
+.pop-in-text p {
+  margin: 10px 0;
+}
+
+/* Animation */
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); /* Start from below */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* End at original position */
+  }
+}
+
