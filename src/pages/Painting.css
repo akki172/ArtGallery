@@ -1,71 +1,225 @@
-/* Paintings.css */
-
-.paintings-container {
-    padding: 20px;
-    background-color: #f9f9f9;
-    text-align: center;
+/* Painting.css */
+.paintings-page {
+  font-family: 'Inter', sans-serif;
+  background-color: #fafafa;
+  min-height: 100vh;
 }
 
-.paintings-container h1 {
-    font-size: 2em;
-    margin-bottom: 20px;
-    color: #333;
+.paintings-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.collection-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.collection-header h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 1rem;
+}
+
+.collection-description {
+  font-size: 1.1rem;
+  color: #666;
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+}
+
+.collection-filters {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.filter-select {
+  padding: 0.75rem 1.25rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  background-color: white;
+  cursor: pointer;
+  min-width: 180px;
 }
 
 .paintings-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Explicitly set 3 columns */
-    gap: 20px;
-    justify-items: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
 }
 
 .painting-card {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    width: 100%;
-    max-width: 300px; /* Adjust width to fit the rectangular card */
-    height: 400px; /* Set height for a rectangular aspect ratio */
-    text-decoration: none;
-    color: inherit;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+  color: inherit;
 }
 
 .painting-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.painting-image-container {
+  position: relative;
+  height: 280px;
+  overflow: hidden;
 }
 
 .painting-image {
-    width: 100%;
-    height: 60%; /* Adjust image height to maintain a good ratio */
-    object-fit: cover; /* Ensure the image fills the container without distortion */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.painting-card:hover .painting-image {
+  transform: scale(1.05);
+}
+
+.painting-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.painting-card:hover .painting-overlay {
+  opacity: 1;
+}
+
+.quick-view-btn, .add-to-cart-btn {
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 180px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.quick-view-btn {
+  background: white;
+  color: #333;
+}
+
+.quick-view-btn:hover {
+  background: #f0f0f0;
+}
+
+.add-to-cart-btn {
+  background: #000;
+  color: white;
+}
+
+.add-to-cart-btn:hover {
+  background: #333;
+}
+
+.painting-details {
+  padding: 1.5rem;
 }
 
 .painting-title {
-    font-size: 1.2em;
-    font-weight: 500;
-    margin: 10px 0;
-    padding: 0 10px;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: #222;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.painting-artist {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0.25rem;
+}
+
+.painting-medium {
+  font-size: 0.85rem;
+  color: #888;
+  margin-bottom: 0.75rem;
+  font-style: italic;
 }
 
 .painting-price {
-    font-size: 1em;
-    color: #666;
-    margin-bottom: 15px;
-    padding: 0 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 0.5rem;
 }
 
+.wishlist-btn {
+  background: none;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 0.5rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.wishlist-btn:hover {
+  border-color: #999;
+  color: #222;
+}
+
+.wishlist-btn svg {
+  stroke: #666;
+  transition: stroke 0.2s ease;
+}
+
+.wishlist-btn:hover svg {
+  stroke: #ff0000;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-    .paintings-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
-    }
-}
-
-@media (max-width: 600px) {
-    .paintings-grid {
-        grid-template-columns: 1fr; /* 1 column on small screens */
-    }
+  .paintings-container {
+    padding: 1rem;
+  }
+  
+  .collection-header h1 {
+    font-size: 2rem;
+  }
+  
+  .collection-filters {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .filter-select {
+    width: 100%;
+    max-width: 280px;
+  }
+  
+  .paintings-grid {
+    grid-template-columns: 1fr;
+  }
 }

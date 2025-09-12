@@ -1,49 +1,104 @@
 import React from 'react';
-import './VirtualTour.css'; // Ensure CSS is created with appropriate styles
+import { useNavigate } from 'react-router-dom';
+import Navbar from '../components/Navbar';
+import './VirtualTour.css';
 
 const VirtualTour = () => {
+  const navigate = useNavigate();
+
   const openVirtualTour = () => {
     window.open("https://fruitsofthespirit.moyosaspaces.com/", "_blank");
   };
 
+  const galleryImages = [
+    { src: "https://tse1.mm.bing.net/th?id=OIP.pNU6vuRN_foMDxpz0x45JgHaFB&pid=Api&P=0&h=180", alt: "Art Exhibition" },
+    { src: "http://www.bssc.edu.au/wp-content/uploads/2020/10/Virtual-Exhibition.jpg", alt: "Virtual Gallery" },
+    { src: "http://idialab.org/wp-content/uploads/2013/05/Avaya_ArtMuseum2.jpg", alt: "Museum Interior" },
+    { src: "https://tse4.mm.bing.net/th?id=OIP.TBix-d-hFraKSDijUhpmVwHaEY&pid=Api&P=0&h=180", alt: "Art Display" },
+    { src: "https://www.digitalartsonline.co.uk/cmsdata/slideshow/3672115/virtual-exhibition.jpg", alt: "Digital Art" },
+    { src: "https://museum-next.com/wp-content/uploads/2020/04/virtual-exhibitions.jpg", alt: "Virtual Museum" },
+    { src: "https://www.artdex.com/wp-content/uploads/2020/04/Virtual-Exhibitions.jpg", alt: "Contemporary Art" }
+  ];
+
   return (
-    <div className="virtual-tour-container">
-      {/* Flex container for virtual tour details */}
-      <div className="virtual-tour-row">
-        {/* Image on the left side */}
-        <div className="virtual-tour-image-container">
-          <img
-            src="https://tse3.mm.bing.net/th?id=OIP.quqCmBuFzAU7pUC7rdirmQHaDT&pid=Api&P=0&h=180"
-            alt="Virtual Art Gallery"
-            className="virtual-tour-image"
-          />
-        </div>
+    <div className="virtual-tour-page">
+      <Navbar />
+      
+      <main className="virtual-tour-container">
+        {/* Hero Section */}
+        <section className="virtual-tour-hero">
+          <div className="hero-content">
+            <h1>Immerse Yourself in Art</h1>
+            <p className="hero-subtitle">Experience our gallery from anywhere in the world</p>
+            <button onClick={openVirtualTour} className="cta-button">
+              Start Virtual Tour
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M5 12h13M12 5l7 7-7 7"/>
+              </svg>
+            </button>
+          </div>
+          <div className="hero-image">
+            <img
+              src="https://images.unsplash.com/photo-1578926375605-eaf7559b1458?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+              alt="Virtual Art Gallery Experience"
+            />
+          </div>
+        </section>
 
-        {/* Text content and button on the right side */}
-        <div className="virtual-tour-content">
-          <h2>Explore Our Art Gallery Virtually</h2>
-          <p>
-            Immerse yourself in the world of art with our interactive virtual tour. Explore a wide range of beautiful artworks,
-            from contemporary pieces to traditional masterpieces. Whether you're an art enthusiast or a casual observer,
-            this virtual experience brings the gallery right to your fingertips. Start your tour today and discover the wonders
-            of art like never before!
-          </p>
-          <button onClick={openVirtualTour} className="virtual-tour-button">
-            Start Virtual Tour
-          </button>
-        </div>
-      </div>
+        {/* Features Section */}
+        <section className="features-section">
+          <div className="feature-card">
+            <div className="feature-icon">🎨</div>
+            <h3>360° Views</h3>
+            <p>Explore every angle of our exhibitions with immersive 360-degree technology.</p>
+          </div>
+          <div className="feature-card">
+            <div className="feature-icon">🖼️</div>
+            <h3>High Resolution</h3>
+            <p>View artworks in stunning detail with our high-resolution imaging.</p>
+          </div>
+          <div className="feature-card">
+            <div className="feature-icon">🔍</div>
+            <h3>Zoom In</h3>
+            <p>Examine brushstrokes and textures up close like never before.</p>
+          </div>
+        </section>
 
-      {/* Horizontal scroll image gallery section */}
-      <h2>Image Gallery With Horizontal Scroll</h2>
-      <p>Use the horizontal scrollbar to see the other images.</p>
-      <div className="scroll-container">
-        <img src="https://tse1.mm.bing.net/th?id=OIP.pNU6vuRN_foMDxpz0x45JgHaFB&pid=Api&P=0&h=180" alt="Cinque Terre" width="600" height="400" />
-        <img src="http://www.bssc.edu.au/wp-content/uploads/2020/10/Virtual-Exhibition.jpg" alt="Forest" width="600" height="400" />
-        <img src="http://idialab.org/wp-content/uploads/2013/05/Avaya_ArtMuseum2.jpg" alt="Northern Lights" width="600" height="400" />
-        <img src="https://tse4.mm.bing.net/th?id=OIP.TBix-d-hFraKSDijUhpmVwHaEY&pid=Api&P=0&h=180" alt="Mountains" width="600" height="400" />
-      </div>
-      <p>Note that the images are of the same size.</p>
+        {/* Gallery Preview Section */}
+        <section className="gallery-preview">
+          <div className="section-header">
+            <h2>Gallery Highlights</h2>
+            <p>Swipe to explore featured exhibitions</p>
+          </div>
+          <div className="horizontal-scroll-gallery">
+            {galleryImages.map((image, index) => (
+              <div key={index} className="gallery-item">
+                <img src={image.src} alt={image.alt} />
+                <div className="image-overlay">
+                  <button className="view-details-btn" onClick={() => navigate('/exhibition-details')}>
+                    View Details
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Testimonial Section */}
+        <section className="testimonial-section">
+          <blockquote>
+            "The virtual tour was so realistic, I felt like I was actually walking through the gallery. 
+            The ability to zoom in on artworks revealed details I would have missed in person."
+          </blockquote>
+          <div className="testimonial-author">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah J." />
+            <div>
+              <p className="author-name">Sarah J.</p>
+              <p className="author-title">Art Collector</p>
+            </div>
+          </div>
+        </section>
+      </main>
     </div>
   );
 };

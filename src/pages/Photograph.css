@@ -1,50 +1,374 @@
-/* src/components/Photograph.css */
+/* Base Styles */
+.photograph-gallery-container, .photograph-detail-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
 
-.photograph-container {
-    padding: 20px;
-    text-align: center;
+/* Gallery View Styles */
+.gallery-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.gallery-header h1 {
+  font-size: 2.2rem;
+  font-weight: 300;
+  color: #333;
+}
+
+.sort-options select {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: white;
+}
+
+.photograph-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.photo-card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.photo-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  padding-top: 100%;
+  overflow: hidden;
+}
+
+.image-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.photo-card:hover .image-container img {
+  transform: scale(1.03);
+}
+
+.photo-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.photo-card:hover .photo-overlay {
+  opacity: 1;
+}
+
+.quick-view {
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.quick-view:hover {
+  background: white;
+  transform: translateY(-2px);
+}
+
+.photo-info {
+  padding: 1.5rem;
+}
+
+.photo-info h3 {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+  color: #555;
+}
+
+.photo-info h4 {
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.price {
+  font-weight: 500;
+  color: #000;
+}
+
+.card-actions {
+  display: flex;
+  padding: 0 1.5rem 1.5rem;
+  gap: 0.5rem;
+}
+
+.add-to-cart {
+  flex: 1;
+  padding: 0.7rem;
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.add-to-cart:hover {
+  background: #333;
+}
+
+.wishlist-btn {
+  width: 40px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.wishlist-btn:hover {
+  background: #f8f8f8;
+  color: #e74c3c;
+}
+
+/* Detail View Styles */
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  padding: 0.5rem 1rem;
+  background: none;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.back-button:hover {
+  background: #f8f8f8;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+
+.image-section {
+  position: relative;
+}
+
+.main-image {
+  width: 100%;
+  max-height: 70vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.artist-name {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.artwork-title {
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.price-section {
+  margin: 2rem 0;
+}
+
+.price {
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.add-to-cart, .wishlist-button {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.add-to-cart {
+  background: black;
+  color: white;
+}
+
+.add-to-cart:hover {
+  background: #333;
+}
+
+.wishlist-button {
+  background: white;
+  border: 1px solid #ddd;
+}
+
+.wishlist-button:hover {
+  background: #f8f8f8;
+  color: #e74c3c;
+}
+
+.artwork-description {
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.artwork-details {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid #eee;
+}
+
+.artwork-details h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.detail-row {
+  display: flex;
+  margin-bottom: 0.8rem;
+}
+
+.detail-label {
+  font-weight: 500;
+  width: 100px;
+  color: #666;
+}
+
+.related-works {
+  margin-top: 4rem;
+  padding-top: 3rem;
+  border-top: 1px solid #eee;
+}
+
+.related-works h3 {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.related-card {
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.related-card:hover {
+  transform: translateY(-5px);
+}
+
+.related-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+}
+
+.related-info h4 {
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: 0.3rem;
+}
+
+.related-info p {
+  color: #000;
+  font-weight: 500;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .detail-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .related-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .photograph-gallery-container, .photograph-detail-container {
+    padding: 1rem;
+  }
+  
+  .gallery-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
   }
   
   .photograph-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    padding: 20px;
+    grid-template-columns: repeat(2, 1fr);
   }
   
-  .photograph-card {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    text-align: center;
-    padding: 10px;
-    transition: box-shadow 0.3s;
-    text-decoration: none;
-    color: #000;
+  .related-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .photograph-grid {
+    grid-template-columns: 1fr;
   }
   
-  .photograph-card:hover {
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  .card-actions {
+    flex-direction: column;
   }
   
-  .photograph-image {
+  .add-to-cart, .wishlist-btn {
     width: 100%;
-    height: auto;
-    border-radius: 4px;
   }
   
-  .photograph-title {
-    font-size: 16px;
-    margin: 10px 0;
+  .wishlist-btn {
+    height: 40px;
   }
-  
-  .photograph-price {
-    font-size: 14px;
-    color: #a00;
-  }
-  
-  .photograph-description {
-    font-size: 13px;
-    color: #666;
-  }
-  
+}

@@ -1,63 +1,275 @@
+/* Artists.css */
+.artists-page {
+  font-family: 'Inter', sans-serif;
+  background-color: #fafafa;
+  min-height: 100vh;
+}
+
 .artists-container {
-    padding: 20px;
-    text-align: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.artists-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 0 1rem;
+}
+
+.artists-header h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #666;
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+}
+
+.search-filter {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.search-input {
+  padding: 0.75rem 1.25rem;
+  border: 1px solid #ddd;
+  border-radius: 30px;
+  width: 300px;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  border-color: #999;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
+}
+
+.filter-select {
+  padding: 0.75rem 1.25rem;
+  border: 1px solid #ddd;
+  border-radius: 30px;
+  font-size: 1rem;
+  background-color: white;
+  cursor: pointer;
+  outline: none;
+}
+
+.artists-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.artist-card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.artist-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.artist-image-container {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+}
+
+.artist-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.artist-card:hover .artist-image {
+  transform: scale(1.05);
+}
+
+.social-links {
+  position: absolute;
+  bottom: 1rem;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.artist-card:hover .social-links {
+  opacity: 1;
+}
+
+.social-icon {
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.social-icon:hover {
+  background: white;
+  transform: scale(1.1);
+}
+
+.social-icon svg {
+  stroke: #333;
+}
+
+.artist-info {
+  padding: 1.5rem;
+}
+
+.artist-info h2 {
+  font-size: 1.4rem;
+  margin-bottom: 0.25rem;
+  color: #222;
+}
+
+.artist-title {
+  color: #888;
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+}
+
+.artist-bio {
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.artist-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.view-works-btn, .contact-btn {
+  padding: 0.5rem 1.25rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.view-works-btn {
+  background: #000;
+  color: white;
+  border: none;
+}
+
+.view-works-btn:hover {
+  background: #333;
+}
+
+.contact-btn {
+  background: white;
+  border: 1px solid #ddd;
+  color: #333;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.contact-btn:hover {
+  background: #f8f8f8;
+}
+
+.newsletter-section {
+  background: #f0f0f0;
+  padding: 3rem;
+  border-radius: 10px;
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.newsletter-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: #222;
+}
+
+.newsletter-section p {
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+.newsletter-form {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.newsletter-form input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.newsletter-form button {
+  background: #000;
+  color: white;
+  border: none;
+  padding: 0 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s ease;
+}
+
+.newsletter-form button:hover {
+  background: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .artists-header h1 {
+    font-size: 2.2rem;
   }
   
-  h2 {
-    color: #333;
+  .artists-grid {
+    grid-template-columns: 1fr;
   }
   
-  .row {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20px;
+  .artist-image-container {
+    height: 250px;
   }
   
-  .column {
-    width: 30%;
+  .newsletter-section {
+    padding: 2rem 1rem;
   }
   
-  .card {
-    border: 1px solid #ddd;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 15px;
-    text-align: center;
-    background-color: #fff;
+  .newsletter-form {
+    flex-direction: column;
   }
-  
-  .card img {
-    width: 100%;
-    height: auto;
-  }
-  
-  .container {
-    padding: 10px;
-  }
-  
-  .container h2 {
-    margin: 10px 0;
-  }
-  
-  .container p {
-    font-size: 1em;
-    color: #555;
-  }
-  
-  .title {
-    font-style: italic;
-    color: #777;
-  }
-  
-  .button {
-    padding: 10px 20px;
-    background-color: #333;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .button:hover {
-    background-color: #555;
-  }
-  
+}
